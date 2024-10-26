@@ -169,7 +169,7 @@ $(function () {
     type: 'pie',
     data: {
       datasets: [{
-        data: ['35','25','40'],
+        data: ['{{bookavailble}}','{{booksold}}','{{bookrental}}'],
         backgroundColor :["#27c100","#f3545d","#fdaf4b"],
         borderWidth: 10,
         
@@ -205,6 +205,9 @@ $(function () {
 </script>
 
 <script>
+  $("#retaldays").keyup(function(){
+    $("#totalrental").val($("#retaldays").val()*$("#retalprice").val())
+  });
   {% for book in books %}
   $(".cat{{book.category.id}}").click(function(){
     $(".bookhide").hide()
