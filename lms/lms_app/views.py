@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from . models import *
 from . forms import BookForm, CategoryForm
 
@@ -36,33 +36,24 @@ def books(request):
     }
     return render(request, 'pages/books.html',context)
 
-def delete(request):
+def delete(request, id):
+    book_delete = get_object_or_404(Book, id=id)
     if request.method == 'POST':
-        
-        add_category = CategoryForm(request.POST)
-        if add_category.is_valid():
-            add_category.save()
+        book_delete.delete()
+        return redirect('/')
+    return render(request, 'pages/delete.html')
 
 
-    context = {
-        'books': Book.objects.all(),
-        'cats': Category.objects.all(),
-        'formcat': CategoryForm(),
-    }
-    return render(request, 'pages/delete.html',context)
-
-def update(request):
+def update(request, id):
+    book_id = Book.objects.get(id=id)
     if request.method == 'POST':
-        add_category = CategoryForm(request.POST)
-        if add_category.is_valid():
-            add_category.save()
-
-
+        book_save = BookForm(request.POST, request.FILES, instance = book_id)
+        if book_save.is_valid():
+            book_save.save()
+            return redirect('/')
+    else:
+        book_save = BookForm(instance = book_id)
     context = {
-        'books': Book.objects.all(),
-        'cats': Category.objects.all(),
-        'formcat': CategoryForm(),
-    }
-    return render(request, 'pages/update.html',context)
-
-
+        'form': book_save,
+        }
+    return render(request, 'pages/update.html', context)
