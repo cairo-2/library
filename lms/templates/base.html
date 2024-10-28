@@ -102,14 +102,14 @@ $(function () {
           backgroundColor: '#007bff',
           borderColor    : '#007bff',
           data           : [ 
-               '50',
+               $(".salarysold").text(),
           ]
         },
         {
           backgroundColor: '#ced4da',
           borderColor    : '#ced4da',
           data           : [ 
-                '30',
+                $(".salaryrental").text(),
           ]
         }
       ]
@@ -230,6 +230,24 @@ $(function () {
     $(".book{{book.status}}").show()
   });
   {% endfor %}
+
+  var total1 = 0;
+  $(".totalrental").each(function(){
+    $(this).hide()
+    var salary1 = $(this).text()
+    total1 += parseInt(salary1)
+  });
+  $(".salaryrental").text(total1)
+  $(".salaryrental").hide()
+
+  var total2 = 0;
+  $(".totalsold").each(function(){
+    $(this).hide()
+    var salary2 = $(this).text()
+    total2 += parseInt(salary2)
+  });
+  $(".salarysold").text(total2)
+  $(".salarysold").hide()
 </script>
 
 </body>

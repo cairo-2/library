@@ -31,10 +31,15 @@ def books(request):
         if add_category.is_valid():
             add_category.save()
 
-
+    search = Book.objects.all()
+    title = None
+    if 'search_name' in request.GET:
+        title = request.GET['search_name']
+        if title:
+            search = search.filter(title__icontains=title)
 
     context = {
-        'books': Book.objects.all(),
+        'books': search,
         'cats': Category.objects.all(),
         'formcat': CategoryForm(),
     }
