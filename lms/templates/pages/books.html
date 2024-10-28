@@ -12,7 +12,7 @@
 
               <div class="row mb-2">
                 <div class="col-sm-6">
-                  <h1>الكتب</h1>
+                  <h1>books</h1>
                 </div>
  
               </div>
@@ -36,11 +36,11 @@
                             <div class="col-7">
                               <h2 class="lead"><b>{{book.title}}</b></h2>
                               <ul class="  fa-ul text-muted">
-                                <li class="small"><span class="fa-li"></span>الحالة: {{book.status}}</li>
+                                <li class="small"><span class="fa-li"></span>Book Condition: {{book.status}}</li>
                                 {% if book.price %}
-                                <li class="small"><span class="fa-li"></span>السعر: {{book.price}}</li>
+                                <li class="small"><span class="fa-li"></span>the price: {{book.price}}</li>
                                 {% else %}
-                                <li class="small"><span class="fa-li"></span>ايجار الشهر: {{book.retal_price_day}}</li>
+                                <li class="small"><span class="fa-li"></span>Monthly rent : {{book.retal_price_day}}</li>
                                 {% endif %}
                               </ul>
                             </div>
@@ -57,7 +57,7 @@
                               <i class="fas fa-trash"></i>
                             </a>
                             <a href="{% url "update" book.id %}" class="btn btn-sm btn-primary">
-                              <i class="fas fa-book"></i> تعديل
+                              <i class="fas fa-book"></i> Edit
                             </a>
                           </div>
                         </div>

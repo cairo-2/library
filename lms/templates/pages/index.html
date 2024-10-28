@@ -21,14 +21,14 @@
               <div class="card">
                 <div class="card-header border-0">
                   <div class="d-flex justify-content-between">
-                    <h3 class="card-title">اجمالي عدد الكتب</h3>                    
+                    <h3 class="card-title">  Book statistics</h3>                    
                   </div>
                 </div>
                 <div class="card-body">
                   <div class="d-flex">
                     <p class="d-flex flex-column">
                       <span class="text-bold text-lg">{{allbooks}}</span>
-                      <span>اجمالي عدد الكتب</span>
+                      <span>Total number of books  </span>
                     </p>  
                   </div>
                   <!-- /.d-flex -->
@@ -77,7 +77,7 @@
               <div class="card">
                 <div class="card-header border-0">
                   <div class="d-flex justify-content-between">
-                    <h3 class="card-title">الارباح</h3>   
+                    <h3 class="card-title">Profits</h3>   
                   </div>
                 </div>    
                 <div class="card-body">
@@ -93,11 +93,11 @@
   
                   <div class="d-flex flex-row justify-content-end">
                     <span class="mr-2">
-                      <i class="fas fa-square text-primary"></i> الاربح من بيع الكتب
+                      <i class="fas fa-square text-primary"></i> Profits from selling books
                       <p id="soldtotals"></p>     
                     </span>
                     <span>
-                      <i class="fas fa-square text-gray"></i> الارباح من استعارة الكتب
+                      <i class="fas fa-square text-gray"></i> Profits from borrowing books
                       <p id="rentedtotals"></p>
                     </span>
                   </div>
@@ -111,12 +111,12 @@
   
           <!-- form add books -->
           <div class="row m-1 mb-3">   
-            <a href="#bookform" class="btn btn-primary" data-toggle="collapse">+ اضافة كتاب</a>
+            <a href="#bookform" class="btn btn-primary" data-toggle="collapse">+ add book </a>
           </div>
           
           <div id="bookform" class="card card-primary collapse">
             <div class="card-header">
-              <h3 class="card-title">اضافة كتاب</h3>
+              <h3 class="card-title">add book </h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -125,7 +125,7 @@
               {{form}}
               <!-- /.card-body -->
               <div class="card-footer">
-                <button type="submit" class="btn btn-primary">اضافة</button>
+                <button type="submit" class="btn btn-primary">add</button>
               </div>
             </form>
           </div>
@@ -164,15 +164,15 @@
                           <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="{% url "update" book.id %}">تعديل</a>
-                          <a class="dropdown-item" href="{% url "delete" book.id %}">حذف</a>
+                          <a class="dropdown-item" href="{% url "update" book.id %}">Edit</a>
+                          <a class="dropdown-item" href="{% url "delete" book.id %}">delete</a>
                       <!-- Button trigger modal -->
                         </div>
                       </div>
       
                       <div style="background: url({{book.photo_book.url}}); background-size:cover" class="widget-user-header bg-info">
-                        <h3 class="widget-user-username">{{book.title}}</h3>
-                        <h5 class="widget-user-desc">{{book.author}}</h5>
+                        <h3 class="widget-user-username text-danger">{{book.title}}</h3>
+                        <h5 class="widget-user-desc text-primary">{{book.author}}</h5>
                       </div>
                       {% if book.photo_author %}
                       <div class="widget-user-image">
@@ -184,7 +184,7 @@
                           <div class="col-sm-4 border-right">
                             <div class="description-block">
                               <h5 class="description-header">{{book.pages}}</h5>
-                              <span class="description-text">صفحة</span>
+                              <span class="description-text">pages</span>
                             </div>
                             <!-- /.description-block -->
                           </div>
@@ -193,12 +193,12 @@
                             {% if book.price %}
                             <div class="description-block">
                                 <h5 class="description-header">${{book.price}}</h5>
-                                <span class="description-text">السعر</span>
+                                <span class="description-text">price</span>
                               </div>
                               {% elif book.retal_price_day %}
                               <div class="description-block">
                                 <h5 class="description-header">${{book.retal_price_day}}</h5>
-                                <span class="description-text">ايجار الشهر</span>
+                                <span class="description-text">Monthly rent </span>
                               </div>
                             {% endif %}
                             <!-- /.description-block -->
@@ -208,17 +208,17 @@
                             {% if book.status == 'availble' %}
                             <div class="description-block">
                                 <h5 class="description-header text-info">{{book.status}}</h5>
-                                <span class="description-text">الحالة</span>
+                                <span class="description-text">the condition</span>
                               </div>
                             {% elif book.status == 'rental' %}
                             <div class="description-block">
                                 <h5 class="description-header text-warning">{{book.status}}</h5>
-                                <span class="description-text">الحالة</span>
+                                <span class="description-text">the condition</span>
                               </div>
                             {% else %}
                             <div class="description-block">
                                 <h5 class="description-header text-danger">{{book.status}}</h5>
-                                <span class="description-text">الحالة</span>
+                                <span class="description-text">the condition</span>
                               </div>
                             {% endif %}
                             <!-- /.description-block -->

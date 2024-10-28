@@ -2,7 +2,7 @@
   <aside style="position: fixed;" class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{% url "index" %}" class="brand-link">
-      <span class="brand-text font-weight-light">NOUVIL</span>
+      <span class="brand-text font-weight-light">The library</span>
     </a>
 
     <!-- Sidebar -->
@@ -12,7 +12,7 @@
         <div class="image">
         </div>
         <div class="info">
-          <a href="{% url "index" %}" class="d-block">Abdelrahman Gamal</a>
+          <a href="{% url "index" %}" class="d-block">Abdelrahman</a>
         </div>
       </div>
 
@@ -24,7 +24,7 @@
             <a href="{% url "books" %}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                New Books
+                the Books
               </p>
             </a>
           </li>
@@ -68,24 +68,24 @@
             </ul>
           </li>
 
-          <li class="nav-header">الكتب المستعارة</li>
+          <li class="nav-header">Book condition</li>
           
           <li style="cursor: pointer;" class="nav-item statussold">
             <a id="statusSold" class="nav-link">
               <i class="nav-icon far fa-circle text-danger"></i>
-              <p class="text">تم بيعه</p>
+              <p class="text">Sold</p>
             </a>
           </li>
           <li style="cursor: pointer;" class="nav-item statusrental">
             <a id="" class="nav-link">
               <i class="nav-icon far fa-circle text-warning"></i>
-              <p>تم استعارته</p>
+              <p>loaned book </p>
             </a>
           </li>
           <li style="cursor: pointer;" class="nav-item statusavailble">
             <a id="" class="nav-link">
               <i class="nav-icon far fa-circle text-info"></i>
-              <p>متاح</p>
+              <p>available</p>
             </a>
           </li>
         </ul>
