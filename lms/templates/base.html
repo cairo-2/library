@@ -205,6 +205,18 @@ $(function () {
 </script>
 
 <script>
+  $(document).ready(function(){
+    var total = 0;
+    $('.totalprice').each(function(){
+      $(this).hide()
+      var salary = $(this).text()
+      total += parseInt(salary)
+    });
+    $("#totalsalarys").text(total)
+  });
+
+
+
   $("#retaldays").keyup(function(){
     $("#totalrental").val($("#retaldays").val()*$("#retalprice").val())
   });
